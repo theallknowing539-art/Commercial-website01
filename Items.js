@@ -1,4 +1,4 @@
-// Fade-in animation on scroll
+// Fade-in animation
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
