@@ -22,106 +22,250 @@
   font-weight: normal;
   font-style: normal;
 }
-body{
-    margin: 0px;  
+
+/* Reset and base styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+body {
+    font-family: "Vogue", serif;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #f8f8f8;
+}
+
 a {
     color: inherit;
     text-decoration: none;
 }
-.bigDiv {
-    display: flex;
+
+/* Header */
+.TitleDiv {
     width: 100%;
-    height: 100px;
-}
-.div1 {
-    width: 50%;
+    height: 70px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
+    padding: 0 15px;
+    background-color: white;
+    z-index: 100;
+    flex-shrink: 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
+
 .Title {
     font-family: "TheBoldFont", sans-serif;
-    padding: 0px;
-    margin-left: 10px;
-    margin-top:0px;
-    margin-bottom:0px;
-    font-size: 50px;
+    font-size: 36px;
+    margin: 0;
+    transition: opacity 0.2s ease;
 }
 
-.secondTitle {
-    width:60%;
-    margin:0;
-    font-size: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+.Title:hover {
+    opacity: 0.7;
 }
-.secondTitle > p {
+
+.icons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.icons > a > p {
     font-family: "TheBoldFont";
-    padding: 0px;
-    font-size: 50px;
+    font-size: 16px;
+    margin: 0;
+    transition: opacity 0.2s ease;
 }
-.bottomPart {
-    margin-left: 50px;
-    margin-right: 50px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+
+.icons > a > p:hover {
+    opacity: 0.7;
+}
+
+.cart-icon {
+    font-size: 20px;
+}
+
+/* Page Header */
+.page-header {
+    text-align: center;
+    padding: 40px 20px 20px;
+    background: linear-gradient(135deg, #1E2B2F 0%, #2a3a40 100%);
+    color: white;
+}
+
+.page-title {
+    font-family: "TheBoldFont", sans-serif;
+    font-size: 42px;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.page-subtitle {
+    font-family: "Vogue", serif;
+    font-size: 18px;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Items Grid */
+.items-wrapper {
+    flex: 1;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
-.Card {
-    width:300px;
-    height:400px;
-    border-radius: 30px;
-    transition:300ms;
-    padding: 0px;
-}
-.Card:hover {
-    box-shadow: 5px 3px 30px 5px rgb(104, 103, 103);
-    transition:300ms;
-}
-.cardImage {
-    margin:0px;
-    width: 100%;
-    height: 101%;
+
+.item-card-link {
+    text-decoration: none;
+    color: inherit;
     display: block;
-    object-fit: cover;
-}
-.cardImageWrapper {
-    width:300px;
-    height:300px;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
-    margin-bottom: 0px;
-    background-color: white;
-    overflow: hidden;
-}
-.upperWrapper {
-    height:85px;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-    margin-bottom: 0px;
-    margin: 0px;
 }
 
-.caption{
-    font-size: 24px;
-    font-family: "Vogue";
-    text-align: left;
-    margin-left: 25px;
-    margin-bottom: 0px;
+.item-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
-.price {
-    font-family: "Vogue";
-    padding: 0px;
-    font-size: 15px;
-    color: rgb(49, 49, 49);
-    margin-left: 27px;
-    margin-top: 5px;
+
+.item-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
+
+.item-image-wrapper {
+    width: 100%;
+    padding-bottom: 100%;
+    position: relative;
+    overflow: hidden;
+    background-color: #f0f0f0;
+}
+
+.item-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.item-card:hover .item-image {
+    transform: scale(1.05);
+}
+
+.item-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.item-name {
+    font-family: "TheBoldFont", sans-serif;
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #1E2B2F;
+}
+
+.item-price {
+    font-family: "Vogue", serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffb347;
+    margin-bottom: 10px;
+}
+
+.item-badges {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.item-badge {
+    background-color: #1E2B2F;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-family: "Vogue", serif;
+    opacity: 0.8;
+}
+
+/* Footer */
+.footer {
+    width: 100%;
+    background-color: rgb(31, 21, 21);
+    color: white;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.footer-brand {
+    font-family: "TheBoldFont", sans-serif;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.footer-description {
+    font-size: 14px;
+    line-height: 1.5;
+    max-width: 280px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.footer-title {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 14px;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Fade animation */
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
@@ -133,211 +277,140 @@ a {
     transform: translateY(0);
 }
 
-/* Footer Styles */
-.footer {
-    width: 100%;
-    background-color: rgb(31, 21, 21);
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 50px 80px;
-    margin-top: 80px;
-    gap: 50px;
-    flex-wrap: wrap;
-}
-
-.footer-left {
-    flex: 1;
-    max-width: 500px;
-}
-
-.footer-brand {
-    font-family: "TheBoldFont", sans-serif;
-    font-size: 36px;
-    margin-top: 0;
-    margin-bottom: 15px;
-}
-
-.footer-description {
-    font-family: "Vogue", serif;
-    font-size: 16px;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.85);
-    margin: 0;
-}
-
-.footer-right {
-    flex: 0;
-    min-width: 200px;
-}
-
-.footer-title {
-    font-family: "Vogue", serif;
-    font-size: 20px;
-    margin-top: 0;
-    margin-bottom: 20px;
-}
-
-.footer-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.footer-links li {
-    margin-bottom: 12px;
-}
-
-.footer-links a {
-    font-family: "Vogue", serif;
-    font-size: 16px;
-    color: rgba(255, 255, 255, 0.85);
-    transition: 200ms;
-}
-
-.footer-links a:hover {
-    color: white;
-    text-decoration: underline;
-    transition: 200ms;
-}
-
-/* ===== RESPONSIVE STYLES ===== */
-
-/* Tablets and smaller */
-@media (max-width: 1024px) {
+/* Tablet styles */
+@media (min-width: 481px) and (max-width: 768px) {
+    .TitleDiv {
+        height: 80px;
+        padding: 0 30px;
+    }
+    
     .Title {
         font-size: 42px;
     }
     
-    .secondTitle > p {
-        font-size: 42px;
-    }
-    
-    .bottomPart {
-        margin-left: 30px;
-        margin-right: 30px;
-    }
-}
-
-/* Mobile landscape and smaller tablets */
-@media (max-width: 768px) {
-    .bigDiv {
-        height: auto;
-        flex-direction: column;
-        padding: 10px 0;
-    }
-    
-    .div1 {
-        width: 100%;
-        justify-content: center;
-        padding: 10px 0;
-    }
-    
-    .Title {
-        font-size: 38px;
-        margin-left: 0;
-    }
-    
-    .secondTitle {
-        width: 100%;
-        justify-content: center;
-        text-align: center;
-        padding: 10px 0;
-    }
-    
-    .secondTitle > p {
-        font-size: 36px;
-    }
-    
-    .bottomPart {
-        margin-left: 20px;
-        margin-right: 20px;
-        gap: 15px;
-        margin-top: 20px;
-    }
-    
-    .footer {
-        flex-direction: column;
-        padding: 40px 30px;
-        margin-top: 60px;
-    }
-    
-    .footer-left {
-        max-width: 100%;
-    }
-    
-    .footer-brand {
-        font-size: 32px;
-    }
-}
-
-/* Mobile portrait */
-@media (max-width: 480px) {
-    .bigDiv {
-        padding: 5px 0;
-    }
-    
-    .div1 {
-        padding: 5px 0;
-    }
-    
-    .Title {
-        font-size: 32px;
-    }
-    
-    .secondTitle {
-        padding: 5px 0;
-    }
-    
-    .secondTitle > p {
-        font-size: 30px;
-    }
-    
-    .bottomPart {
-        margin-left: 10px;
-        margin-right: 10px;
-        margin-top: 15px;
-    }
-    
-    .Card {
-        width: 280px;
-        height: 380px;
-    }
-    
-    .cardImageWrapper {
-        width: 280px;
-        height: 280px;
-    }
-    
-    .caption {
-        font-size: 22px;
-        margin-left: 20px;
-    }
-    
-    .price {
-        font-size: 14px;
-        margin-left: 22px;
-    }
-    
-    .footer {
-        padding: 30px 20px;
-        margin-top: 40px;
-    }
-    
-    .footer-brand {
-        font-size: 28px;
-    }
-    
-    .footer-description {
-        font-size: 14px;
-    }
-    
-    .footer-title {
+    .icons > a > p {
         font-size: 18px;
     }
     
-    .footer-links a {
-        font-size: 14px;
+    .page-title {
+        font-size: 48px;
+    }
+    
+    .page-subtitle {
+        font-size: 20px;
+    }
+    
+    .items-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    
+    .footer {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+        padding: 40px 60px;
+    }
+    
+    .footer-description {
+        margin: 0;
+    }
+    
+    .footer-links {
+        justify-content: flex-start;
+    }
+}
+
+/* Desktop styles */
+@media (min-width: 769px) {
+    .TitleDiv {
+        height: 100px;
+        padding: 0 50px;
+    }
+    
+    .Title {
+        font-size: 60px;
+    }
+    
+    .icons {
+        gap: 40px;
+    }
+    
+    .icons > a > p {
+        font-size: 20px;
+    }
+    
+    .cart-icon {
+        font-size: 24px;
+    }
+    
+    .page-header {
+        padding: 60px 20px 30px;
+    }
+    
+    .page-title {
+        font-size: 56px;
+    }
+    
+    .page-subtitle {
+        font-size: 22px;
+    }
+    
+    .items-wrapper {
+        padding: 50px 40px;
+    }
+    
+    .items-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+    }
+    
+    .item-name {
+        font-size: 20px;
+    }
+    
+    .item-price {
+        font-size: 18px;
+    }
+    
+    .item-badge {
+        font-size: 12px;
+        padding: 4px 12px;
+    }
+    
+    .footer {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 60px 80px;
+    }
+    
+    .footer-left {
+        max-width: 500px;
+        text-align: left;
+    }
+    
+    .footer-right {
+        text-align: left;
+    }
+    
+    .footer-description {
+        font-size: 16px;
+        max-width: 400px;
+        margin: 0;
+    }
+    
+    .footer-links {
+        display: block;
+    }
+    
+    .footer-links li {
+        margin-bottom: 10px;
+    }
+}
+
+/* Large Desktop */
+@media (min-width: 1400px) {
+    .items-grid {
+        gap: 35px;
     }
 }
