@@ -5,18 +5,6 @@
   font-style: normal;
 }
 @font-face {
-  font-family: "Coolvetica";
-  src: url("Fonts/Coolvetica\ Rg.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Sunlight";
-  src: url("Fonts/Sunlight\ Dreams.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
   font-family: "Vogue";
   src: url("Fonts/Classyvogueregular.ttf") format("truetype");
   font-weight: normal;
@@ -32,16 +20,7 @@
 
 html, body {
     height: 100%;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
-
-body {
     font-family: "Vogue", serif;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
     background-color: #f8f8f8;
 }
 
@@ -59,20 +38,14 @@ a {
     align-items: center;
     padding: 0 15px;
     background-color: white;
-    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     flex-shrink: 0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .Title {
     font-family: "TheBoldFont", sans-serif;
     font-size: 36px;
     margin: 0;
-    transition: opacity 0.2s ease;
-}
-
-.Title:hover {
-    opacity: 0.7;
 }
 
 .icons {
@@ -85,11 +58,6 @@ a {
     font-family: "TheBoldFont";
     font-size: 16px;
     margin: 0;
-    transition: opacity 0.2s ease;
-}
-
-.icons > a > p:hover {
-    opacity: 0.7;
 }
 
 .cart-icon {
@@ -100,7 +68,7 @@ a {
 .page-header {
     text-align: center;
     padding: 40px 20px 20px;
-    background: linear-gradient(135deg, #1E2B2F 0%, #2a3a40 100%);
+    background: linear-gradient(135deg, #1E2B2F, #2a3a40);
     color: white;
 }
 
@@ -108,21 +76,19 @@ a {
     font-family: "TheBoldFont", sans-serif;
     font-size: 42px;
     margin-bottom: 10px;
-    letter-spacing: 2px;
 }
 
 .page-subtitle {
-    font-family: "Vogue", serif;
     font-size: 18px;
     opacity: 0.9;
     max-width: 600px;
     margin: 0 auto;
 }
 
-/* Items Grid */
+/* Items Grid - ensures visibility */
 .items-wrapper {
     flex: 1;
-    max-width: 1400px;
+    max-width: 1200px;
     width: 100%;
     margin: 0 auto;
     padding: 40px 20px;
@@ -135,33 +101,35 @@ a {
 }
 
 .item-card-link {
-    text-decoration: none;
-    color: inherit;
     display: block;
+    color: inherit;
 }
 
 .item-card {
     background: white;
     border-radius: 20px;
     overflow: hidden;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
     height: 100%;
     display: flex;
     flex-direction: column;
+    border: 1px solid #eee; /* Added border to make card visible even without image */
 }
 
 .item-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 
 .item-image-wrapper {
     width: 100%;
-    padding-bottom: 100%;
+    padding-bottom: 100%; /* Creates square aspect ratio */
     position: relative;
     overflow: hidden;
-    background-color: #f0f0f0;
+    background-color: #ddd; /* Fallback background */
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 
 .item-image {
@@ -171,54 +139,31 @@ a {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.item-card:hover .item-image {
-    transform: scale(1.05);
 }
 
 .item-info {
     padding: 15px;
     text-align: center;
+    background: white; /* Ensure background */
+    flex: 1;
 }
 
 .item-name {
     font-family: "TheBoldFont", sans-serif;
     font-size: 18px;
-    margin-bottom: 5px;
     color: #1E2B2F;
+    margin-bottom: 5px;
 }
 
 .item-price {
-    font-family: "Vogue", serif;
     font-size: 16px;
-    font-weight: bold;
     color: #ffb347;
-    margin-bottom: 10px;
-}
-
-.item-badges {
-    display: flex;
-    gap: 8px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.item-badge {
-    background-color: #1E2B2F;
-    color: white;
-    padding: 4px 10px;
-    border-radius: 20px;
-    font-size: 11px;
-    font-family: "Vogue", serif;
-    opacity: 0.8;
+    font-weight: bold;
 }
 
 /* Footer */
 .footer {
-    width: 100%;
-    background-color: rgb(31, 21, 21);
+    background-color: rgb(31,21,21);
     color: white;
     padding: 30px 20px;
     display: flex;
@@ -239,7 +184,7 @@ a {
     line-height: 1.5;
     max-width: 280px;
     margin: 0 auto;
-    color: rgba(255, 255, 255, 0.85);
+    color: rgba(255,255,255,0.85);
 }
 
 .footer-title {
@@ -255,9 +200,9 @@ a {
 }
 
 .footer-links a {
-    color: rgba(255, 255, 255, 0.85);
+    color: rgba(255,255,255,0.85);
     font-size: 14px;
-    transition: color 0.2s ease;
+    transition: color 0.2s;
 }
 
 .footer-links a:hover {
@@ -277,52 +222,14 @@ a {
     transform: translateY(0);
 }
 
-/* Tablet styles */
-@media (min-width: 481px) and (max-width: 768px) {
-    .TitleDiv {
-        height: 80px;
-        padding: 0 30px;
-    }
-    
-    .Title {
-        font-size: 42px;
-    }
-    
-    .icons > a > p {
-        font-size: 18px;
-    }
-    
-    .page-title {
-        font-size: 48px;
-    }
-    
-    .page-subtitle {
-        font-size: 20px;
-    }
-    
+/* Responsive */
+@media (min-width: 768px) {
     .items-grid {
         grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-    }
-    
-    .footer {
-        flex-direction: row;
-        justify-content: space-between;
-        text-align: left;
-        padding: 40px 60px;
-    }
-    
-    .footer-description {
-        margin: 0;
-    }
-    
-    .footer-links {
-        justify-content: flex-start;
     }
 }
 
-/* Desktop styles */
-@media (min-width: 769px) {
+@media (min-width: 1024px) {
     .TitleDiv {
         height: 100px;
         padding: 0 50px;
@@ -356,10 +263,6 @@ a {
         font-size: 22px;
     }
     
-    .items-wrapper {
-        padding: 50px 40px;
-    }
-    
     .items-grid {
         grid-template-columns: repeat(4, 1fr);
         gap: 30px;
@@ -373,44 +276,24 @@ a {
         font-size: 18px;
     }
     
-    .item-badge {
-        font-size: 12px;
-        padding: 4px 12px;
-    }
-    
     .footer {
         flex-direction: row;
         justify-content: space-between;
-        padding: 60px 80px;
-    }
-    
-    .footer-left {
-        max-width: 500px;
         text-align: left;
-    }
-    
-    .footer-right {
-        text-align: left;
+        padding: 40px 60px;
     }
     
     .footer-description {
-        font-size: 16px;
-        max-width: 400px;
         margin: 0;
+        max-width: 400px;
     }
     
     .footer-links {
+        justify-content: flex-start;
         display: block;
     }
     
     .footer-links li {
         margin-bottom: 10px;
-    }
-}
-
-/* Large Desktop */
-@media (min-width: 1400px) {
-    .items-grid {
-        gap: 35px;
     }
 }
