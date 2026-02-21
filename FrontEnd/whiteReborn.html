@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>White Reborn Tee - Echo</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="fightShirt.css">
+</head>
+<body>
+    <div class="TitleDiv fade-in">
+        <a href="index.html"><p class="Title">Echo</p></a>
+        <div class="icons">
+            <a href="Items.html"><p>Items</p></a>
+            <a href="About.html"><p>About</p></a>
+            <a href="cart.html" class="cart-icon-link"><p class="cart-icon">🛒</p></a>
+        </div>
+    </div>
+
+    <div class="wrapper fade-in">
+        <section aria-label="Shirt Photos">
+            <div class="carousel" data-carousel>
+                <button class="carousel-button prev" data-carousel-button="prev">&#8592;</button>
+                <button class="carousel-button next" data-carousel-button="next">&#8594;</button>
+                <ul data-slides>
+                    <li class="slide" data-active>
+                        <div class="zoom-container">
+                            <img src="images/WHITE full mockup.jpg" alt="White Echo Tee Front" class="zoom-image">
+                            <div class="zoom-lens"></div>
+                            <div class="zoom-result"></div>
+                        </div>
+                    </li>
+                    <li class="slide">
+                        <div class="zoom-container">
+                            <img src="images/Reborn Back mk2.jpg" alt="White Echo Tee Back" class="zoom-image">
+                            <div class="zoom-lens"></div>
+                            <div class="zoom-result"></div>
+                        </div>
+                    </li>
+                </ul>    
+            </div>
+        </section>
+
+        <div class="fillBox fade-in">
+            <div class="formWrapper description-wrapper">
+                <div class="description-content">
+                    <h2 class="shirt-title">White Reborn Tee</h2>
+                    <p class="price-tag">2900 DA</p>
+                    <div class="description-text">
+                        <p>Made from premium cotton for ultimate comfort and durability.</p>
+                        <p>Features a unique halftone design that creates depth and visual interest.</p>
+                        <p>Printed using DTF technology for vibrant, long-lasting prints that won't crack or fade.</p>
+                    </div>
+                    <div class="description-badge">
+                        <span class="badge">Premium Cotton</span>
+                        <span class="badge">Halftone Design</span>
+                        <span class="badge">DTF Print</span>
+                    </div>
+                    
+                    <!-- Add to Cart Section -->
+                    <div class="cart-section">
+                        <div class="quantity-selector">
+                            <button class="quantity-btn minus" id="decreaseQty">−</button>
+                            <input type="number" id="quantity" value="1" min="1" max="10" readonly>
+                            <button class="quantity-btn plus" id="increaseQty">+</button>
+                        </div>
+                        <button class="add-to-cart-btn" id="addToCart">
+                            <span class="cart-icon-btn">🛒</span>
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-left">
+            <h3 class="footer-brand">Echo</h3>
+            <p class="footer-description">
+                Echo is more than clothing—it's self-expression that resonates. 
+                Wear what speaks for you, not what fades away.
+            </p>
+        </div>
+        <div class="footer-right">
+            <h4 class="footer-title">Quick Links</h4>
+            <ul class="footer-links">
+                <li><a href="Items.html">Items</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="whiteReborn.js" async defer></script>
+</body>
+</html>
